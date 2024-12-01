@@ -20,12 +20,17 @@ int main(int argc, char const *argv[]) {
 
   input.close();
 
+  sort(v1.begin(), v1.end());
+  sort(v2.begin(), v2.end());
+
   int score = 0;
   for (int val : v1) {
     int i = 0;
     for (int to_match : v2) {
       if (val == to_match) {
         i++;
+      } else if (val < to_match) {
+        break;
       }
     }
     score += val * i;
